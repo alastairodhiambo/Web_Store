@@ -1,0 +1,221 @@
+<!-- Alastair Odhiambo
+Student ID: 145845194 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>OASIS</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant&family=Inter&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <script src="contact.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="hamburger-menu">
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <!--
+            Too bad the menu has to be inside of the button
+            but hey, it's pure CSS magic.
+            -->
+            <ul id="menu">
+              <a id="women" href="#"><li>Women</li></a>
+              <a id="men" href="#"><li>Men</li></a>
+              <a id="about" href="#"><li>About</li></a>
+              <a id="contact" href="contact.html"><li>Contact</li></a>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <a href="index.html"><h2 id="main-logo">OASIS</h2></a>
+
+      <div id="user-options">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+    </header>
+
+    <div id="about-content" hidden>
+      <i id="close-about" class="fas fa-times"></i>
+      <p>
+        OASIS is a collective that looks to help people express themselves by wearing our products.
+      </p>
+    </div>
+
+    <main>
+      <section>
+        <div id="contact-content">
+          <form id="contact-form" action="https://httpbin.org/post" method="POST">
+            <div>
+              <label for="contact-user">Name</label>
+              <input
+                id="contact-user"
+                class="form-control"
+                name="name"
+                type="text"
+                autofocus
+                autocomplete="name"
+                tabindex="1"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="contact-email">Email</label>
+              <input
+                id="contact-email"
+                class="form-control"
+                name="email"
+                autocomplete="email"
+                type="email"
+                placeholder="name@example.com"
+                tabindex="2"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="contact-address">Address</label>
+              <input
+                id="contact-address"
+                class="form-control"
+                name="address"
+                type="text"
+                tabindex="3"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="contact-city">City</label>
+              <input
+                list="contact-city-choices"
+                id="contact-city"
+                class="form-control"
+                name="city"
+                type="text"
+                tabindex="4"
+                required
+              />
+              <datalist id="contact-city-choices">
+                <option value="Toronto"></option>
+                <option value="Vancouver"></option>
+                <option value="Ottawa"></option>
+                <option value="Calgary"></option>
+                <option value="Winnipeg"></option>
+              </datalist>
+            </div>
+
+            <div>
+              <label for="contact-postalcode">Postal Code</label>
+              <input
+                id="contact-postalcode"
+                class="form-control"
+                name="postalcode"
+                type="text"
+                tabindex="5"
+                placeholder="M5W 1E6"
+                pattern="[A-Z]\d[A-Z] \d[A-Z]\d$"
+                required
+              />
+            </div>
+            <div id="radio-buttons">
+              <div>
+                <input type="radio" id="" name="choice" value="question" checked tabindex="6" />
+                <label for="question">Question</label>
+              </div>
+
+              <div>
+                <input type="radio" id="comment" name="choice" value="comment" />
+                <label for="comment">Comment</label>
+              </div>
+
+              <div>
+                <input type="radio" id="order-problem" name="choice" value="order-problem" />
+                <label for="order-problem">Order Problem</label>
+              </div>
+            </div>
+
+            <div hidden id="order">
+              <label for="contact-orderno">Order #</label>
+              <input id="contact-orderno" class="form-control" name="orderno" type="text" />
+            </div>
+
+            <textarea
+              id="contact-message"
+              class="form-control"
+              name="message"
+              rows="10"
+              tabindex="7"
+              placeholder="Tell us what your inquiry is..."
+              required
+            >
+            </textarea>
+
+            <div>
+              <input
+                class="btn btn-primary"
+                type="submit"
+                name="submit"
+                value="Submit"
+                tabindex="8"
+              />
+            </div>
+
+            <input hidden id="contact-alastair" name="alastair" type="text" value="Alastair" />
+          </form>
+        </div>
+        <div id="category-header"><h2>Contact</h2></div>
+        <div id="content" class="section-grid"></div>
+        <footer class="section-grid">
+          <div id="email-input">
+            <form action="https://formspree.io/xvowywqe" method="POST">
+              <label for="feedback-email">Subcribe to our email list!</label>
+              <input
+                id="feedback-email"
+                name="email"
+                autocomplete="email"
+                type="email"
+                placeholder="name@example.com"
+                required
+              />
+              <input type="submit" name="submit" value="Subscribe" />
+            </form>
+          </div>
+          <div id="footer-content">
+            <div id="social-media">
+              <a href="https://www.instagram.com/" target="blank"
+                ><i class="fab fa-instagram sm-icon"></i
+              ></a>
+              <a href="https://www.twitter.com/" target="blank"
+                ><i class="fab fa-twitter sm-icon"></i
+              ></a>
+              <a href="https://www.facebook.com/" target="blank"
+                ><i class="fab fa-facebook sm-icon"></i
+              ></a>
+              <a href="https://www.tiktok.com/" target="blank"
+                ><i class="fab fa-tiktok sm-icon"></i
+              ></a>
+            </div>
+            <div id="copyright">&copy; 2020 OASIS</div>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

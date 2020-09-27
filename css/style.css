@@ -1,0 +1,493 @@
+/* Alastair Odhiambo*/
+
+* { margin:0; padding:0; box-sizing:border-box;}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  --sky-blue: #c3ccd5;
+  --jet: #2a2728;
+  --midday-yellow: rgb(255, 217, 0);
+}
+
+body {
+  background-color: var(--jet);
+  margin: 0;
+  font-family: 'Cormorant', serif;
+}
+
+header {
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--sky-blue);;
+  background-color: var(--jet);
+  font-size: 1.1em;
+}
+
+#main-logo {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+}
+
+#search-wrapper input {
+  color: var(--midday-yellow);
+  background-color: var(--jet);
+  padding-left: 10px;
+  border: 1px solid var(--sky-blue);;
+}
+
+#search-wrapper button {
+  color: var(--sky-blue);;
+  background-color: var(--jet);
+  border: 1px transparent;
+}
+
+#user-options {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#user-options > i {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+main {
+  height: 100%;
+  display: flex;
+}
+
+main section {
+  flex: 1;
+  height: 100%;
+  background-color: var(--jet);
+  margin-right: 0;
+  overflow: auto;
+  display: grid;
+}
+
+#main-background {
+  font-family: 'Roboto Slab', serif;
+  color: var(--jet);
+  height: 800px;
+  width: 100%;
+  background-image: url(../images/main-background-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
+}
+
+#main-background p {
+  float: right;
+  margin-top: 100px;
+  margin-right: 40px;
+  font-size: 3em;
+}
+
+/* Hamburger Menu */
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  
+  z-index: 11;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: var(--midday-yellow);
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 11; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 10;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--jet);
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  z-index: 9;
+  position: absolute;
+  left: -100px;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  padding-left: 75px;
+  
+  background: var(--sky-blue);;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+/* --------- */
+
+#category-header {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
+  z-index: 5;
+  text-align: center;
+  font-size: 28px;
+  color: var(--sky-blue);;
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 3;
+  z-index: 5;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.item-card-wrapper {
+  padding: 10px;
+}
+
+.item-card-image {
+  position: relative;
+}
+
+.item-card-image p {
+  color: #fff;
+  font-size: 15px;
+  border: 1px transparent;
+  padding: 0px 5px;
+  border-radius: 2px;
+}
+
+.item-card-wrapper:hover p {
+  color: var(--midday-yellow);
+}
+
+.item-card-wrapper:hover .item-card-price {
+  color: var(--midday-yellow);
+}
+
+.item-card-category {
+  color: var(--sky-blue);;
+}
+
+.item-card-price {
+  float: right;
+  font-size: 14px;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: var(--sky-blue);;
+}
+
+a:hover {
+  color: var(--midday-yellow);
+}
+
+#side-menu a {
+  color: var(--jet);
+  font-size: 1.2em;
+}
+
+#menu {
+  margin-left: 10px;
+}
+
+#about-content {
+  padding: 15px 40px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-color: var(--midday-yellow);
+  font-size: 30px;
+  z-index: 600;
+  position: fixed;
+  left: 160px;
+  box-shadow: 5px 5px 5px var(--jet);
+}
+
+#about-content i {
+  float: left;
+}
+
+#about-content p {
+  margin-top: 40px;
+}
+
+footer {
+  height: 300px;
+  color: var(--sky-blue);;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 200px;
+  grid-column: 1 / span 2;
+  grid-row: 7 / span 1;
+  display: grid;
+  justify-content: center;
+}
+
+#footer-content {
+  flex: 3;
+  text-align: center;
+  padding-top: 40px;
+}
+
+#social-media {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.sm-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+#copyright {
+  min-width: 300px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#email-input {
+  flex: 1;
+  min-width: 300px;
+}
+
+#email-input form {
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-gap: 15px;
+  align-items: center;
+}
+
+#email-input form label {
+  font-family: 'Cormorant', serif;
+  font-size: 1.3em;
+}
+
+#email-input input {
+  width: 100%;
+  padding: 0.2em;
+  font-size: 1.4em;
+  font-family: 'Cormorant', serif;
+  border: 1px solid rgb(206, 212, 218);
+  background-color: var(--jet);
+  color: var(--midday-yellow);
+}
+
+#email-input input:focus {
+  border-color: var(--midday-yellow);
+}
+
+#email-input input[type='submit'] {
+  width: 100%;
+  background-color: var(--sky-blue);;
+  color: var(--jet);
+  grid-column: 1 / 1;
+}
+
+#email-input input[type='submit']:hover,
+#email-input input[type='submit']:focus {
+  background-color: var(--midday-yellow);
+}
+
+/* Contact Us */
+
+#contact-content {
+  font-family: 'Roboto Slab', serif;
+  color: var(--sky-blue);;
+  height: 850px;
+  grid-column: 1 / span 2;
+  margin-bottom: 150px;
+  padding: 30px;
+  font-size: 1.2em;
+}
+
+#contact-content form {
+  margin-top: 3em;
+  padding: 2em;
+  border: 3px solid var(--midday-yellow);
+
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: space-between;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+#contact-content form label {
+  font-family: 'Cormorant', serif;
+  font-size: 1.5em;
+}
+
+#contact-content input {
+  width: 100%;
+  padding: 0.2em;
+  font-size: 1.4em;
+  font-family: 'Cormorant', serif;
+  border: 1px solid rgb(206, 212, 218);
+  background-color: var(--jet);
+  color: var(--midday-yellow);
+}
+
+#contact-content input:focus {
+  border-color: var(--midday-yellow);
+}
+
+#contact-content input[type='submit'] {
+  width: 150px;
+  background-color: var(--sky-blue);;
+  color: var(--jet);
+}
+
+#contact-content input[type='submit']:hover,
+#contact-content input[type='submit']:focus {
+  background-color: var(--midday-yellow);
+}
+
+#contact-content textarea {
+  width: 100%;
+  padding: 0.2em;
+  font-size: 1em;
+  font-family: 'Cormorant', serif;
+  border: 1px solid rgb(206, 212, 218);
+  background-color: var(--jet);
+  color: var(--midday-yellow);
+}
+
+#contact-content input[type='radio'] {
+  width: 10px;
+}
+
+
+
+/* RWD */
+
+@media screen and (max-width: 600px) {
+
+}
