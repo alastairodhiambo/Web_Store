@@ -91,7 +91,7 @@ function loadContent(checkCategory = '') {
     div.innerHTML = `
   <a href="#">
   <div class="item-card-image">
-    <img alt="${item.name}" src="images/${item.url}" width="240"/>
+    <img alt="${item.name}" src="../images/${item.url}" width="240"/>
     <p>${item.name}<br>${item.info}<br><span class="item-card-category">${item.category}</span><span class="item-card-price">${item.price}<span></p>
   </div>
   </a>`;
